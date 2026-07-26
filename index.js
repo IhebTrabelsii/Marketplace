@@ -28,8 +28,9 @@ db.connect(err => {
 
 app.use(bodyParser.json()); // Corrected the middleware usage
 
-app.listen(3000, () => {
-    console.log("Server is running on port 3000");
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
 });
 app.get('/getusers', (req, res) => {
     const query = "SELECT * FROM user"; // Moved query string inside the query function
